@@ -21,5 +21,6 @@ const io = socketIO(server);
 let sockets = [];
 
 io.on("connection", socket => {
-  sockets.push(socket.id);
+  socket.emit("hello");
+  socket.on("helloGuys", () => console.log("the client said hello"));
 });
